@@ -15,6 +15,7 @@
 ![](https://github.com/user-attachments/assets/faa4b735-be73-4287-baa2-5455d61cb42f)
 ![](https://github.com/user-attachments/assets/9299e49d-eed9-495a-97a8-20cca11b43a7)
 ![](https://github.com/user-attachments/assets/d19352ac-136b-4780-abcf-1086ac17afa2)
+![](https://github.com/user-attachments/assets/eea2d02b-f000-4c5e-ac84-118912db9908)
 # Partie 2 — Trouver où commence la vérification
 
 ## Étape 3 — Décompiler l’APK avec JADX
@@ -142,3 +143,16 @@ La chaîne obtenue est inversée dans le code natif pour cacher le secret.
 L’inversion permet de retrouver la phrase finale à entrer dans l’application.
 
 Résultat final : Thanks for all the fish
+# Conclusion
+
+Ce lab est excellent pour débuter en **reverse engineering Android**, car il montre une transition très pédagogique entre le **code Java** et le **code natif**.  
+
+L’application paraît simple, mais la logique sensible se trouve dans une **bibliothèque `.so`**, chargée via **JNI**.  
+
+En suivant le write-up Tereré Security :  
+- On remonte depuis l’**interface utilisateur** jusqu’à **MainActivity**.  
+- Puis jusqu’à **CodeCheck** et sa méthode `bar`.  
+- Ensuite, on analyse la fonction native et la comparaison via `strncmp`.  
+- Enfin, on identifie la chaîne secrète :  
+
+**`Thanks for all the fish`**.
