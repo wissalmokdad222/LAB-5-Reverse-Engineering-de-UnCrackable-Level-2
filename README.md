@@ -97,25 +97,6 @@ Le secret attendu par l’application est :
 Thanks for all the fish
 
 Cette information permet de passer à l’étape suivante : valider le secret dans l’application pour obtenir le message de succès.
-## Partie 6 — Comprendre la comparaison avec `strncmp`
-
-### Étape 9 — Lire le pseudo-code de la fonction native
-
-**Objectif :**  
-Identifier comment la fonction native `bar` compare l’entrée utilisateur au secret.
-
-**Action :**  
-- Analyser le pseudo-code dans Ghidra.  
-- Rechercher l’appel à `strncmp`.
-
-**Observation :**  
-- La fonction `bar` utilise `strncmp` pour comparer l’entrée à une chaîne stockée localement (`local_30`).  
-- La comparaison se fait sur 23 caractères.
-
-**Explication :**  
-- `strncmp` compare deux chaînes sur une longueur donnée.  
-- Si elles correspondent, la vérification réussit, ce qui indique que la chaîne secrète est définie dans le code natif.
-![](https://github.com/user-attachments/assets/305389b9-aa45-4a59-9f09-4510903f5683)
 ## Partie 7 — Décoder le secret
 
 **Objectif :** Décoder la chaîne secrète stockée dans la bibliothèque native et obtenir le secret final.
